@@ -1,4 +1,4 @@
-const URL_SERVER = 'notes-app-backend-production-393d.up.railway.app'
+const URL_SERVER = 'https://notes-app-backend-production-393d.up.railway.app'
 
 export const signup = async (username, email, password) => {
 	try {
