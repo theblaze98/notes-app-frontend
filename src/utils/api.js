@@ -1,8 +1,8 @@
-import { createRoutesFromChildren } from 'react-router-dom';
+const URL_SERVER = 'notes-app-backend-production-393d.up.railway.app'
 
 export const signup = async (username, email, password) => {
 	try {
-		const response = await fetch('http://localhost:3000/api/users/signup', {
+		const response = await fetch(`${URL_SERVER}/api/users/signup`, {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -19,7 +19,7 @@ export const signup = async (username, email, password) => {
 
 export const login = async (username, password) => {
 	try {
-		const response = await fetch('http://localhost:3000/api/users/login', {
+		const response = await fetch(`${URL_SERVER}/api/users/login`, {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -37,7 +37,7 @@ export const login = async (username, password) => {
 
 export const isAutenticated = async token => {
 	try {
-		const response = await fetch('http://localhost:3000/api/users/auth', {
+		const response = await fetch(`${URL_SERVER}/api/users/auth`, {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -55,7 +55,7 @@ export const isAutenticated = async token => {
 export const getUserData = async token => {
 	try {
 		const response = await fetch(
-			'http://localhost:3000/api/users/getuserdata',
+			`${URL_SERVER}/api/users/getuserdata`,
 			{
 				method: 'POST',
 				headers: {
@@ -74,7 +74,7 @@ export const getUserData = async token => {
 
 export const getNotes = async token => {
 	try {
-		const response = await fetch(`http://localhost:3000/api/notes/get-notes/${token}`);
+		const response = await fetch(`${URL_SERVER}/api/notes/get-notes/${token}`);
 		const res = await response.json();
 		return res;
 	} catch (error) {
@@ -84,7 +84,7 @@ export const getNotes = async token => {
 
 export const addNote = async (token, title, description) => {
 	try {
-		const response = await fetch('http://localhost:3000/api/notes/add', {
+		const response = await fetch(`${URL_SERVER}/api/notes/add`, {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -102,7 +102,7 @@ export const addNote = async (token, title, description) => {
 export const deleteNote = async id => {
 	try {
 		const response = await fetch(
-			`http://localhost:3000/api/notes/delete/${id}`,
+			`${URL_SERVER}/api/notes/delete/${id}`,
 			{
 				method: 'DELETE',
 				headers: {
