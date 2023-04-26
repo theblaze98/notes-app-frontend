@@ -8,7 +8,7 @@ export const CardNotes = ({
 }) => {
 	return (
 		<div className='bg-white rounded-md p-5'>
-			<h3 className='text-xl font-medium text-blue-600'>{title}</h3>
+			<span className='text-xl font-medium text-blue-600'>{title}</span>
 			<p className='text-lg text-stone-900'>{description}</p>
 			<div className='flex justify-between items-center'>
 				<p className='text-sm text-slate-700 font-medium'>

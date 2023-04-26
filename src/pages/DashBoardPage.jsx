@@ -88,7 +88,7 @@ export const DashBoardPage = () => {
 					onClick={handleClickShowAddNotesForm}>
 					Crear Nueva Nota
 				</button>
-				<div className='grid grid-cols-2 md:grid-cols-3 gap-5'>
+				<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
 					{notes.length !== 0 ? (
 						notes.map(
 							({_id, title, description, createdAt }, index) => {
