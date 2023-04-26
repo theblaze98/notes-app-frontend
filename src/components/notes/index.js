@@ -1,1 +1,2 @@
-export * from './NotesForm';
+export * from './AddNotesForm';
+export * from './CardNotes';
