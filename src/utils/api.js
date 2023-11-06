@@ -1,4 +1,4 @@
-const URL_SERVER = 'https://notes-app-backend-production-393d.up.railway.app'
+const URL_SERVER = import.meta.env.VITE_URL_BACKEND
 
 export const signup = async (username, email, password) => {
 	try {
