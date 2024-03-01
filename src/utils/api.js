@@ -9,13 +9,13 @@ export const signup = async (username, email, password) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({ username, email, password }),
-		});
-		const data = await response.json();
-		return data;
+		})
+		const data = await response.json()
+		return data
 	} catch (error) {
-		return error.msg;
+		return error.msg
 	}
-};
+}
 
 export const login = async (username, password) => {
 	try {
@@ -28,12 +28,12 @@ export const login = async (username, password) => {
 			body: JSON.stringify({ username, password }),
 		})
 
-		const data = await response.json();
-		return data;
+		const data = await response.json()
+		return data
 	} catch (error) {
-		return error.msg;
+		return error.message
 	}
-};
+}
 
 export const isAutenticated = async token => {
 	try {
@@ -45,15 +45,16 @@ export const isAutenticated = async token => {
 			},
 			body: JSON.stringify({ token }),
 		})
-		const res = await response.json();
-		return res;
-	} catch (esg{
-		return error.message;
+		const res = await response.json()
+		return res
+	} catch (error) {
+		return error.message
 	}
-};
+}
 
 export const getUserData = async token => {
 	try {
+		const response = await fetch(`${URL_SERVER}/api/users/getuserdata`, {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -61,25 +62,24 @@ export const getUserData = async token => {
 			},
 			body: JSON.stringify({ token }),
 		})
-		const res = await response.json();
-		return res;
+		const res = await response.json()
+		return res
 	} catch (error) {
-		return error.message;
-	}
-};
-
-export getNotes{
-		const response = await fetch(`${URL_SERVER}/api/notes/get-notes/${token}`, {
-			mode: 'no-cors',
-		})
-		const res = await response.json();
-		return res;
-	} catch (error) {
-		return error.message;
+		return error.message
 	}
 }
 
-export const addNotes = async (token, title, description) => {
+export const getNotes = async token => {
+	try {
+		const response = await fetch(`${URL_SERVER}/api/notes/get-notes/${token}`)
+		const res = await response.json()
+		return res
+	} catch (error) {
+		return error.message
+	}
+}
+
+export const addNote = async (token, title, description) => {
 	try {
 		const response = await fetch(`${URL_SERVER}/api/notes/add`, {
 			method: 'POST',
@@ -89,10 +89,10 @@ export const addNotes = async (token, title, description) => {
 			},
 			body: JSON.stringify({ token, title, description }),
 		})
-		const res = await response.json();
-		return res;
+		const res = await response.json()
+		return res
 	} catch (error) {
-		return error;
+		return error
 	}
 }
 
@@ -105,8 +105,8 @@ export const deleteNote = async id => {
 				'Content-Type': 'application/json',
 			},
 		})
-		return await response.json();
+		return await response.json()
 	} catch (error) {
-		return error.message;
+		return error.message
 	}
 }
