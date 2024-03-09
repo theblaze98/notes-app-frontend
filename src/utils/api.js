@@ -7,6 +7,7 @@ export const signup = async (username, email, password) => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
 			},
 			body: JSON.stringify({ username, email, password }),
 		})
@@ -24,6 +25,7 @@ export const login = async (username, password) => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
 			},
 			body: JSON.stringify({ username, password }),
 		})
@@ -42,6 +44,7 @@ export const isAutenticated = async token => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
 			},
 			body: JSON.stringify({ token }),
 		})
@@ -59,6 +62,7 @@ export const getUserData = async token => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
 			},
 			body: JSON.stringify({ token }),
 		})
@@ -71,7 +75,11 @@ export const getUserData = async token => {
 
 export const getNotes = async token => {
 	try {
-		const response = await fetch(`${URL_SERVER}/api/notes/get-notes/${token}`)
+		const response = await fetch(`${URL_SERVER}/api/notes/get-notes/${token}`, {
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+			}
+		})
 		const res = await response.json()
 		return res
 	} catch (error) {
@@ -86,6 +94,7 @@ export const addNote = async (token, title, description) => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
 			},
 			body: JSON.stringify({ token, title, description }),
 		})
@@ -103,6 +112,7 @@ export const deleteNote = async id => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
 			},
 		})
 		return await response.json()
